@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Drinks For All</title>
 </head>
-<body>
-    <script src="assets/script.js"></script>
+
+<body class="bg-green-100 container">
+    <div class="bg-white rounded-xl border-2 border-black m-4 r-4">
+        <H1 class="m-4 p-6 text-center">Drinks For All</H1>
+        <p class="m-4 p-6">This application is to help find a drink for everyone (of age of course). By putting in
+            your alcohol of choice in the search bar, the application will spit out a list of Drinks
+            that are made with that choice as well as how to make them. Not sure of what to make? Don't worry, just
+            press the randomize button in the bottom right to have our app randomly select a drink for you! </p>
+
+        <div class="bg-blue-100 border-2 border-black m-4 inline-block p-4 rounded-xl box-border max-w-xl text-center">
+            <h1 class="text-center">Search</h1>
+            <p>Type in selection of alcohol and press the submit button.</p>
+            <label for="Beverage">Beverage:</label>
+            <input type="text" class="form-input r-4 m-4" name="alcohol" placeholder=" poison of choice" />
+            <div>
+                <button class=" bg-blue-300 hover:bg-gray-400 p-4 m-4 rounded-xl">submit</button>
+            </div>
+        </div>
+
+        <div class="bg-blue-100 border-2 border-black m-4 inline-block p-4 rounded-xl text-center box-border h-100 w-100">
+            <h1>Random Drink</h1>
+            <p>Use this if you are not sure what you want to pick</p>
+            <button class="bg-blue-300 hover:bg-gray-400 p-4 m-4 rounded-xl">Randomize</button>
+        </div>
+    </div>
+
+  <script src="assets/script.js"></script>
 </body>
+
 </html>
