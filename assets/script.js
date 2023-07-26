@@ -48,3 +48,30 @@ function displayCocktail(cocktail) {
 }
 
 searchCocktail('gin');
+
+var searchFormEl = document.querySelector('#search-form');
+var randomButtonEl = document.querySelector('#random-button');
+
+function handleSearchFormSubmit(event) {
+  event.preventDefault();
+
+  var searchInputVal = document.querySelector('#search-input').value;
+
+  if (!searchInputVal) {
+    console.error('You need to choose an alcohol type!!');
+    return;
+  }
+
+  var queryString = './search-results.html?q=' + searchInputVal + '&format=' + formatInputVal;
+
+  location.assign(queryString);
+}
+
+function handleRandomSelect(event) {
+    event.preventDefault();
+
+
+}
+
+searchFormEl.addEventListener('submit', handleSearchFormSubmit);
+randomButtonEl.addEventListener('click', handleRandomSelect);
