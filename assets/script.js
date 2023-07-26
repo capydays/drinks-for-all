@@ -63,6 +63,7 @@ function handleSearchFormSubmit(event) {
   }
 
   // var queryString = link to search-request html with listed cocktails
+  
 
   location.assign(queryString);
 }
