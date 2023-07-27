@@ -32,7 +32,6 @@ function searchCocktail(ingredient) {
                     return;
                 }
                 response.json().then(function (data) {
-                    console.log(data);
                     displayCocktail(data);
                 });
             }
@@ -45,34 +44,27 @@ function searchCocktail(ingredient) {
 function displayCocktail(cocktail) {
     for (let i = 0; i < 3; i++) {
         ranDrink = Math.floor(Math.random() * (cocktail.drinks.length));
-        console.log(cocktail.drinks[ranDrink].strDrink);
-        fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${cocktail.drinks[ranDrink].strDrink}`)
-            .then(
-                function (response) {
-                    if (response.status !== 200) {
-                        console.log('Looks like there was a problem. Status Code: ' +
-                            response.status);
-                        return;
-                    }
-                    response.json().then(function (data) {
-                        for (let y = 1; y < 16; y++) {
-                            if (data.drinks[ranDrink][`strIngredient${y}`] == null || data.drinks[ranDrink][`strIngredient${y}`] == '') {
-                                break;
-                            }
-                            if (data.drinks[ranDrink][`strMeasure${i}`] != null) {
-                                console.log(data.drinks[ranDrink][`strMeasure${y}`] + ': ' + data.drinks[ranDrink][`strIngredient${y}`]);
-                            }
-                            else {
-                                console.log(data.drinks[ranDrink][`strIngredient${y}`]);
-                            }
-                        }
-                    });
-                }
-            )
-            .catch(function (err) {
-                console.log('Fetch Error :-S', err);
-            });
+        searchedDrink = getCocktailInformation(cocktail.drinks[ranDrink].strDrink);
     }
+}
+
+function getCocktailInformation(cocktail) {
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${cocktail}`)
+        .then(
+            function (response) {
+                if (response.status !== 200) {
+                    console.log('Looks like there was a problem. Status Code: ' +
+                        response.status);
+                    return;
+                }
+                response.json().then(function (data) {
+                    displayRandomCocktail(data);
+                });
+            }
+        )
+        .catch(function (err) {
+            console.log('Fetch Error :-S', err);
+        });
 }
 
 function displayRandomCocktail(cocktail) {
