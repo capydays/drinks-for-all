@@ -7,12 +7,12 @@
     <title>Drinks For All - Search Results</title>
   </head>
   <body>
-    <div class="flex justify-center mt-8 border-2 p-5">Drinks for all search results</div>
+    <div class="flex justify-center mt-2 p-5 text-3xl">Search Results</div>
     <div class="container mx-auto">
     <div class="flex flex row gap-x-10">
       <div class="flex flex-col ml-2 border-2 w-2/6">
         <div class="flex flex-col justify-center">
-          <div class="flex justify-center">user input</div>
+          
           <span class="text-center">Seach for drinks using you own preferences!</span>
           <div class="mb-6">
             <label
@@ -49,16 +49,19 @@
           <span>Feeling lucky? Go ahead and get random drink!</span>
 
           <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" id="random-button"
           >
             Random
           </button>
         </div>
       </div>
       <div class="flex flex-col w-4/6 border-2">
-      <div>Search Results</div>
+        
+        <div id="drink-section"></div>
+  
     </div>
     </div>
 </div>
+<script src="/assets/display-search.js"></script>
   </body>
 </html>
