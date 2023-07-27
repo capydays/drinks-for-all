@@ -12,7 +12,7 @@ function getRandomCocktail() {
 
                 // Examine the text in the response
                 response.json().then(function (data) {
-                    displayCocktail(data);
+                    displayRandomCocktail(data);
                 });
             }
         )
@@ -44,7 +44,13 @@ function searchCocktail(ingredient) {
 }
 
 function displayCocktail(cocktail) {
-    console.log(cocktail);
+    for (let i = 0; i < 5; i++) {
+        ranDrink = Math.floor(Math.random() * cocktail.drinks.length - 1);
+        console.log(cocktail.drinks[ranDrink]);
+    }
+}
+function displayRandomCocktail(cocktail) {
+    console.log(cocktail.drinks[0]);
 }
 
 //searchCocktail('gin');
