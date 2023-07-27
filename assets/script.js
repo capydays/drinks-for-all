@@ -22,7 +22,7 @@ function getRandomCocktail() {
 
 }
 
-getRandomCocktail();
+//getRandomCocktail();
 
 function searchCocktail(ingredient) {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`)
@@ -47,7 +47,7 @@ function displayCocktail(cocktail) {
     console.log(cocktail);
 }
 
-searchCocktail('gin');
+//searchCocktail('gin');
 
 var searchFormEl = document.querySelector('#search-form');
 var randomButtonEl = document.querySelector('#random-button');
@@ -55,24 +55,25 @@ var randomButtonEl = document.querySelector('#random-button');
 function handleSearchFormSubmit(event) {
   event.preventDefault();
 
-  var searchInputVal = document.querySelector('#search-input').value;
-
+  var searchInputVal = document.getElementById('search-input').value;
+  console.log(searchInputVal);
   if (!searchInputVal) {
     console.error('You need to choose an alcohol type!!');
     return;
   }
 
+  searchCocktail(searchInputVal);
   // var queryString = link to search-request html with listed cocktails
   
 
-  location.assign(queryString);
+  //location.assign(queryString);
 }
 
 function handleRandomSelect(event) {
     event.preventDefault();
 
-
+    getRandomCocktail();
 }
 
-searchFormEl.addEventListener('submit', handleSearchFormSubmit);
+searchFormEl.addEventListener('click', handleSearchFormSubmit);
 randomButtonEl.addEventListener('click', handleRandomSelect);
