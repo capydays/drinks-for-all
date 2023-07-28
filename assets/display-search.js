@@ -1,3 +1,15 @@
+function getParams() {
+    // Get the search params out of the URL (i.e. `?q=london&format=photo`) and convert it to an array (i.e. ['?q=london', 'format=photo'])
+    var searchParamsArr = document.location.search.split('&');
+  
+    // Get the query and format values
+    var query = searchParamsArr[0].split('=').pop();
+    
+  
+    getCocktail(query);
+  }
+
+
 var randomButtonEl = document.querySelector('#random-button');
 var submitButtonEl = document.querySelector('#submit-button');
 
@@ -173,3 +185,4 @@ function handleSelect(event) {
 randomButtonEl.addEventListener('click', handleRandomSelect);
 submitButtonEl.addEventListener('click', handleSelect);
 
+getParams()
