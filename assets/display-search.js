@@ -35,13 +35,13 @@ drinkName.innerHTML = cocktail.drinks[0].strDrink;
 drinkSection.appendChild(drinkName);
 
 let img = document.createElement('img');
-img.classList.add('container', 'mx-auto', 'justify-center', 'items-center')
+img.classList.add('float-right','h-60', 'm-6', 'rounded-lg')
 img.src = cocktail.drinks[0].strDrinkThumb;
 
 drinkSection.appendChild(img);
 
 let ingredientsTitle = document.createElement('span')
-ingredientsTitle.classList.add('text-2xl')
+ingredientsTitle.classList.add('text-2xl', 'm-6')
 ingredientsTitle.innerHTML = 'Ingredients:'
 drinkSection.appendChild(ingredientsTitle)
 
@@ -53,7 +53,7 @@ for(let i = 1; i < 16; i++){
     }
 
     let ingredient = document.createElement('ul');
-    ingredient.classList.add('flex', 'flex-col', 'mt-1', 'justify-center')
+    ingredient.classList.add('flex', 'flex-col', 'mt-1', 'justify-center', 'm-6')
     ingredient.innerHTML = cocktail.drinks[0][`strMeasure${i}`] 
     + ': ' + cocktail.drinks[0][`strIngredient${i}`];
 
@@ -61,12 +61,12 @@ for(let i = 1; i < 16; i++){
 }
 
 let directions = document.createElement('span')
-directions.classList.add('text-2xl')
+directions.classList.add('text-2xl', 'm-6')
 directions.innerHTML = 'Directions:';
 drinkSection.appendChild(directions)
 
 let card = document.createElement('p');
-card.classList.add('mt-1')
+card.classList.add('mt-1', 'm-6', 'clear-left')
 card.innerHTML = cocktail.drinks[0].strInstructions + '<br/>' + '<br/>';
 
 drinkSection.appendChild(card);
