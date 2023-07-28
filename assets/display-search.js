@@ -1,5 +1,9 @@
 var randomButtonEl = document.querySelector('#random-button');
+var submitButtonEl = document.querySelector('#submit-button');
 
+
+
+// function to get random cocktail
 function getRandomCocktail() {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
         .then(
@@ -29,19 +33,19 @@ function displayRandomCocktail(cocktail) {
 let drinkSection = document.querySelector('#drink-section');
 
 let drinkName = document.createElement('h2');
-drinkName.classList.add('text-center', 'p-3', 'text-3xl')
+drinkName.classList.add('text-center', 'p-3', 'text-3xl', 'mt-6')
 drinkName.innerHTML = cocktail.drinks[0].strDrink;
 
 drinkSection.appendChild(drinkName);
 
 let img = document.createElement('img');
-img.classList.add('float-right','h-60', 'm-6', 'rounded-lg')
+img.classList.add('h-60', 'justify-center', 'items-center', 'float-right', 'm-4')
 img.src = cocktail.drinks[0].strDrinkThumb;
 
 drinkSection.appendChild(img);
 
 let ingredientsTitle = document.createElement('span')
-ingredientsTitle.classList.add('text-2xl', 'm-6')
+ingredientsTitle.classList.add('text-2xl', 'm-4')
 ingredientsTitle.innerHTML = 'Ingredients:'
 drinkSection.appendChild(ingredientsTitle)
 
@@ -53,7 +57,7 @@ for(let i = 1; i < 16; i++){
     }
 
     let ingredient = document.createElement('ul');
-    ingredient.classList.add('flex', 'flex-col', 'mt-1', 'justify-center', 'm-6')
+    ingredient.classList.add('flex', 'flex-col', 'mt-1', 'justify-center', 'm-4')
     ingredient.innerHTML = cocktail.drinks[0][`strMeasure${i}`] 
     + ': ' + cocktail.drinks[0][`strIngredient${i}`];
 
@@ -61,12 +65,12 @@ for(let i = 1; i < 16; i++){
 }
 
 let directions = document.createElement('span')
-directions.classList.add('text-2xl', 'm-6')
+directions.classList.add('text-2xl', 'm-4')
 directions.innerHTML = 'Directions:';
 drinkSection.appendChild(directions)
 
-let card = document.createElement('p');
-card.classList.add('mt-1', 'm-6', 'clear-left')
+let card = document.createElement('p', 'm-4', 'clear-left');
+card.classList.add('mt-1')
 card.innerHTML = cocktail.drinks[0].strInstructions + '<br/>' + '<br/>';
 
 drinkSection.appendChild(card);
@@ -78,9 +82,25 @@ drinkSection.appendChild(card);
 
 function handleRandomSelect(event) {
     event.preventDefault();
-
     getRandomCocktail();
 }
 
+function handleSelect(event) {
+    event.preventDefault();
+    var searchInputVal = document.getElementById('default-input').value;
+    if (!searchInputVal) {
+        console.error('You need to choose an alcohol type!!');
+        return;
+    }
+
+    getCocktail(searchInputVal);
+    
+}
+
+
+
+
 // searchFormEl.addEventListener('click', handleSearchFormSubmit);
 randomButtonEl.addEventListener('click', handleRandomSelect);
+submitButtonEl.addEventListener('click', handleSelect);
+
