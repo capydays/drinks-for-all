@@ -31,19 +31,19 @@ function getRandomCocktail() {
         let drinkSection = document.querySelector('#drink-section');
         
         let drinkName = document.createElement('h2');
-        drinkName.classList.add('text-center', 'p-3', 'text-3xl')
+        drinkName.classList.add('text-center', 'p-3', 'text-3xl', 'mt-6')
         drinkName.innerHTML = cocktail.drinks[0].strDrink;
         
         drinkSection.appendChild(drinkName);
         
         let img = document.createElement('img');
-        img.classList.add('container', 'mx-auto', 'justify-center', 'items-center')
+        img.classList.add('h-60', 'justify-center', 'items-center', 'float-right', 'm-4')
         img.src = cocktail.drinks[0].strDrinkThumb;
         
         drinkSection.appendChild(img);
         
         let ingredientsTitle = document.createElement('span')
-        ingredientsTitle.classList.add('text-2xl')
+        ingredientsTitle.classList.add('text-2xl', 'm-4')
         ingredientsTitle.innerHTML = 'Ingredients:'
         drinkSection.appendChild(ingredientsTitle)
         
@@ -55,7 +55,7 @@ function getRandomCocktail() {
             }
         
             let ingredient = document.createElement('ul');
-            ingredient.classList.add('flex', 'flex-col', 'mt-1', 'justify-center')
+            ingredient.classList.add('flex', 'flex-col', 'mt-1', 'justify-center', 'm-4')
             ingredient.innerHTML = cocktail.drinks[0][`strMeasure${i}`] 
             + ': ' + cocktail.drinks[0][`strIngredient${i}`];
         
@@ -63,12 +63,12 @@ function getRandomCocktail() {
         }
         
         let directions = document.createElement('span')
-        directions.classList.add('text-2xl')
+        directions.classList.add('text-2xl', 'm-4')
         directions.innerHTML = 'Directions:';
         drinkSection.appendChild(directions)
         
-        let card = document.createElement('p');
-        card.classList.add('mt-1')
+        let card = document.createElement('p','m-4', 'clear-left');
+        card.classList.add('mt-1', 'm-4', 'clear-left');
         card.innerHTML = cocktail.drinks[0].strInstructions + '<br/>' + '<br/>';
         
         drinkSection.appendChild(card);
