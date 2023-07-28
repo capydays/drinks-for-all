@@ -1,3 +1,6 @@
+//let's fetch the api
+
+
 var searchFormEl = document.querySelector('#search-form');
 
 function handleSearchFormSubmit(event) {
