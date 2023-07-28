@@ -24,60 +24,129 @@ function getRandomCocktail() {
             console.log('Fetch Error :-S', err);
         });
 
-}
+        function displayRandomCocktail(cocktail) {
+            console.log(cocktail.drinks[0]);
+        
+        
+        let drinkSection = document.querySelector('#drink-section');
+        
+        let drinkName = document.createElement('h2');
+        drinkName.classList.add('text-center', 'p-3', 'text-3xl', 'mt-6')
+        drinkName.innerHTML = cocktail.drinks[0].strDrink;
+        
+        drinkSection.appendChild(drinkName);
+        
+        let img = document.createElement('img');
+        img.classList.add('h-60', 'justify-center', 'items-center', 'float-right', 'm-4')
+        img.src = cocktail.drinks[0].strDrinkThumb;
+        
+        drinkSection.appendChild(img);
+        
+        let ingredientsTitle = document.createElement('span')
+        ingredientsTitle.classList.add('text-2xl', 'm-4')
+        ingredientsTitle.innerHTML = 'Ingredients:'
+        drinkSection.appendChild(ingredientsTitle)
+        
+        for(let i = 1; i < 16; i++){
+            
+        
+            if(cocktail.drinks[0][`strIngredient${i}`] == null){
+                break;
+            }
+        
+            let ingredient = document.createElement('ul');
+            ingredient.classList.add('flex', 'flex-col', 'mt-1', 'justify-center', 'm-4')
+            ingredient.innerHTML = cocktail.drinks[0][`strMeasure${i}`] 
+            + ': ' + cocktail.drinks[0][`strIngredient${i}`];
+        
+            drinkSection.appendChild(ingredient);
+        }
+        
+        let directions = document.createElement('span')
+        directions.classList.add('text-2xl', 'm-4')
+        directions.innerHTML = 'Directions:';
+        drinkSection.appendChild(directions)
+        
+        let card = document.createElement('p','m-4', 'clear-left');
+        card.classList.add('mt-1', 'm-4', 'clear-left');
+        card.innerHTML = cocktail.drinks[0].strInstructions + '<br/>' + '<br/>';
+        
+        drinkSection.appendChild(card);
+        }
+};
 
-function displayRandomCocktail(cocktail) {
-    console.log(cocktail.drinks[0]);
+// function to allow search by ingedients
+function getCocktail(ingredient) {
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`)
+        .then(
+            function (response) {
+                if (response.status !== 200) {
+                    console.log('Looks like there was a problem. Status Code: ' +
+                        response.status);
+                    return;
+                }
 
+                // Examine the text in the response
+                response.json().then(function (data) {
+                    displayCocktail(data);
+                });
+            }
+        )
+        .catch(function (err) {
+            console.log('Fetch Error :-S', err);
+        });
 
-let drinkSection = document.querySelector('#drink-section');
-
-let drinkName = document.createElement('h2');
-drinkName.classList.add('text-center', 'p-3', 'text-3xl', 'mt-6')
-drinkName.innerHTML = cocktail.drinks[0].strDrink;
-
-drinkSection.appendChild(drinkName);
-
-let img = document.createElement('img');
-img.classList.add('h-60', 'justify-center', 'items-center', 'float-right', 'm-4')
-img.src = cocktail.drinks[0].strDrinkThumb;
-
-drinkSection.appendChild(img);
-
-let ingredientsTitle = document.createElement('span')
-ingredientsTitle.classList.add('text-2xl', 'm-4')
-ingredientsTitle.innerHTML = 'Ingredients:'
-drinkSection.appendChild(ingredientsTitle)
-
-for(let i = 1; i < 16; i++){
-    
-
-    if(cocktail.drinks[0][`strIngredient${i}`] == null){
-        break;
-    }
-
-    let ingredient = document.createElement('ul');
-    ingredient.classList.add('flex', 'flex-col', 'mt-1', 'justify-center', 'm-4')
-    ingredient.innerHTML = cocktail.drinks[0][`strMeasure${i}`] 
-    + ': ' + cocktail.drinks[0][`strIngredient${i}`];
-
-    drinkSection.appendChild(ingredient);
-}
-
-let directions = document.createElement('span')
-directions.classList.add('text-2xl', 'm-4')
-directions.innerHTML = 'Directions:';
-drinkSection.appendChild(directions)
-
-let card = document.createElement('p', 'm-4', 'clear-left');
-card.classList.add('mt-1')
-card.innerHTML = cocktail.drinks[0].strInstructions + '<br/>' + '<br/>';
-
-drinkSection.appendChild(card);
-}
-
-
-
+        function displayCocktail(cocktail) {
+            console.log(cocktail.drinks[0]);
+        
+        
+        let drinkSection = document.querySelector('#drink-section');
+        
+        let drinkName = document.createElement('h2');
+        drinkName.classList.add('text-center', 'p-3', 'text-3xl')
+        drinkName.innerHTML = cocktail.drinks[0].strDrink;
+        
+        drinkSection.appendChild(drinkName);
+        
+        let img = document.createElement('img');
+        img.classList.add('container', 'mx-auto', 'justify-center', 'items-center')
+        img.src = cocktail.drinks[0].strDrinkThumb;
+        
+        drinkSection.appendChild(img);
+        
+        let ingredientsTitle = document.createElement('span')
+        ingredientsTitle.classList.add('text-2xl')
+        ingredientsTitle.innerHTML = 'Ingredients:'
+        drinkSection.appendChild(ingredientsTitle)
+        
+        for(let i = 1; i < 16; i++){
+            
+        
+            if(cocktail.drinks[0][`strIngredient${i}`] == null){
+                break;
+            }
+        
+            let ingredient = document.createElement('ul');
+            ingredient.classList.add('flex', 'flex-col', 'mt-1', 'justify-center')
+            ingredient.innerHTML = cocktail.drinks[0][`strMeasure${i}`] 
+            + ': ' + cocktail.drinks[0][`strIngredient${i}`];
+        
+            drinkSection.appendChild(ingredient);
+        }
+        
+        let directions = document.createElement('span')
+        directions.classList.add('text-2xl')
+        directions.innerHTML = 'Directions:';
+        drinkSection.appendChild(directions)
+        
+        let card = document.createElement('p');
+        card.classList.add('mt-1')
+        card.innerHTML = cocktail.drinks[0].strInstructions + '<br/>' + '<br/>';
+        
+        drinkSection.appendChild(card);
+        }
+        
+};
 
 
 function handleRandomSelect(event) {
