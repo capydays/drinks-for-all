@@ -130,5 +130,5 @@ function handleRandomSelect(event) {
     getRandomCocktail();
 }
 
-searchFormEl.addEventListener('click', handleSearchFormSubmit);
+searchFormEl.addEventListener('submit', handleSearchFormSubmit);
 randomButtonEl.addEventListener('click', handleRandomSelect);
