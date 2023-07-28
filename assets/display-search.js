@@ -77,7 +77,7 @@ function getRandomCocktail() {
 
 // function to allow search by ingedients
 function getCocktail(ingredient) {
-    fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ingredient}`)
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${ingredient}`)
         .then(
             function (response) {
                 if (response.status !== 200) {
