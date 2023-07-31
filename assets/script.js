@@ -20,7 +20,6 @@ function handleSearchFormSubmit(event) {
   
 }
 
-searchFormEl.addEventListener('click', handleSearchFormSubmit);
-
+searchFormEl.addEventListener('submit', handleSearchFormSubmit);
 
 
