@@ -139,9 +139,24 @@ function getSearchedCocktail(cocktail) {
                 )
             });
 }
+async function getDadJoke() {
+    const dadJoke = await fetch("https://icanhazdadjoke.com/", {
+        headers: {
+            Accept: "application/json"
+        }
+    });
+    const dadJokeJSON = await dadJoke.json();
+    if (dadJokeJSON.status === 200) {
+        document.getElementById("jokes").innerHTML = dadJokeJSON.joke;
+    } else {
+        return "Error retrieving dad joke!"
+    }
+};
+
 function handleRandomSelect(event) {
     event.preventDefault();
     getRandomCocktail();
+    getDadJoke();
 }
 
 function handleSelect(event) {
@@ -151,8 +166,8 @@ function handleSelect(event) {
         console.error('You need to choose an alcohol type!!');
         return;
     }
-
-    searchCocktail(searchInputVal);
+    getCocktail(searchInputVal);
+    getDadJoke();
 
 }
 
