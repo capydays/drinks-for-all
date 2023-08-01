@@ -28,7 +28,7 @@ function getRandomCocktail() {
 
                 // Examine the text in the response
                 response.json().then(function (data) {
-                    displayRandomCocktail(data);
+                    displayCocktail(data);
                 });
             }
         )
@@ -36,7 +36,7 @@ function getRandomCocktail() {
             console.log('Fetch Error :-S', err);
         });
 }
-function displayRandomCocktail(cocktail) {
+function displayCocktail(cocktail) {
     console.log(cocktail.drinks[0]);
 
 
@@ -107,7 +107,7 @@ function getCocktail(ingredient) {
 
                 // Examine the text in the response
                 response.json().then(function (data) {
-                    displayCocktail(data);
+                    searchCocktail(data);
                 });
             }
         )
@@ -115,7 +115,7 @@ function getCocktail(ingredient) {
             console.log('Fetch Error :-S', err);
         });
 }
-function displayCocktail(cocktail) {
+function searchCocktail(cocktail) {
     for (let i = 0; i < 3; i++) {
         ranDrink = Math.floor(Math.random() * (cocktail.drinks.length));
         console.log(cocktail.drinks[ranDrink].strDrink);
@@ -133,7 +133,7 @@ function getSearchedCocktail(cocktail) {
                     return;
                 }
                 response.json().then(function (data) {
-                    displayRandomCocktail(data);
+                    displayCocktail(data);
                 }
 
                 )
@@ -152,7 +152,7 @@ function handleSelect(event) {
         return;
     }
 
-    getCocktail(searchInputVal);
+    searchCocktail(searchInputVal);
 
 }
 
