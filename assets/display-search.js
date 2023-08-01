@@ -39,38 +39,41 @@ function getRandomCocktail() {
 function displayCocktail(cocktail) {
     console.log(cocktail.drinks[0]);
 
-
-    let drinkSection = document.querySelector('#drink-section');
-
-    let drinkName = document.createElement('h2');
-    drinkName.classList.add('text-center', 'p-3', 'text-3xl', 'mt-6')
-    drinkName.innerHTML = cocktail.drinks[0].strDrink;
-
-    drinkSection.appendChild(drinkName);
-
-    let img = document.createElement('img');
-    img.classList.add('h-60', 'justify-center', 'items-center', 'float-right', 'm-4')
-    img.src = cocktail.drinks[0].strDrinkThumb;
-
-    drinkSection.appendChild(img);
-
-    let ingredientsTitle = document.createElement('span')
-    ingredientsTitle.classList.add('text-2xl', 'm-4')
-    ingredientsTitle.innerHTML = 'Ingredients:'
-    drinkSection.appendChild(ingredientsTitle)
-
-    for (let i = 1; i < 16; i++) {
-
-
-        if (cocktail.drinks[0][`strIngredient${i}`] == null) {
-            break;
-        }
-        if (cocktail.drinks[0][`strMeasure${i}`] != null) {
+        function displayRandomCocktail(cocktail) {
+            console.log(cocktail.drinks[0]);
+        
+        
+        let drinkSection = document.querySelector('#drink-section');
+        
+        let drinkName = document.createElement('h2');
+        drinkName.classList.add('text-center', 'p-3', 'text-3xl', 'md:mt-12')
+        drinkName.innerHTML = cocktail.drinks[0].strDrink;
+        
+        drinkSection.appendChild(drinkName);
+        
+        let img = document.createElement('img');
+        img.classList.add('h-40', 'flex', 'flex-col', 'content-evenly', 'mx-4', 'mb-2', 'md:h-40', 'lg:h-60', 'md:float-right')
+        img.src = cocktail.drinks[0].strDrinkThumb;
+        
+        drinkSection.appendChild(img);
+        
+        let ingredientsTitle = document.createElement('span')
+        ingredientsTitle.classList.add('text-2xl', 'm-4', 'text-left')
+        ingredientsTitle.innerHTML = 'Ingredients:'
+        drinkSection.appendChild(ingredientsTitle)
+        
+        for(let i = 1; i < 16; i++){
+            
+        
+            if(cocktail.drinks[0][`strIngredient${i}`] == null){
+                break;
+            }
+        
             let ingredient = document.createElement('ul');
-            ingredient.classList.add('flex', 'flex-col', 'mt-1', 'justify-center', 'm-4')
-            ingredient.innerHTML = cocktail.drinks[0][`strMeasure${i}`]
-                + ': ' + cocktail.drinks[0][`strIngredient${i}`];
-
+            ingredient.classList.add('flex', 'flex-col', 'mt-1', 'justify-center', 'm-4', 'sm:max-sm:text-center')
+            ingredient.innerHTML = cocktail.drinks[0][`strMeasure${i}`] 
+            + ': ' + cocktail.drinks[0][`strIngredient${i}`];
+        
             drinkSection.appendChild(ingredient);
         }
         else {
@@ -122,7 +125,6 @@ function searchCocktail(cocktail) {
         getSearchedCocktail(cocktail.drinks[ranDrink].strDrink);
     }
 }
-
 function getSearchedCocktail(cocktail) {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${cocktail}`)
         .then(
@@ -135,6 +137,7 @@ function getSearchedCocktail(cocktail) {
                 response.json().then(function (data) {
                     displayCocktail(data);
                 }
+
 
                 )
             });
@@ -154,12 +157,14 @@ async function getDadJoke() {
 };
 
 function handleRandomSelect(event) {
+    clearResults();
     event.preventDefault();
     getRandomCocktail();
     getDadJoke();
 }
 
 function handleSelect(event) {
+    clearResults();
     event.preventDefault();
     var searchInputVal = document.getElementById('default-input').value;
     if (!searchInputVal) {
@@ -169,9 +174,15 @@ function handleSelect(event) {
     getCocktail(searchInputVal);
     getDadJoke();
 
+
 }
 
-
+function clearResults(){
+    let drinkSection = document.querySelector('#drink-section');
+    while (drinkSection.firstChild){
+        drinkSection.removeChild(drinkSection.lastChild);
+}
+}
 
 
 // searchFormEl.addEventListener('click', handleSearchFormSubmit);

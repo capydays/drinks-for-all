@@ -2,6 +2,7 @@
 
 
 var searchFormEl = document.querySelector('#search-form');
+var randomBtnEl = document.querySelector('#random-button');
 
 function handleSearchFormSubmit(event) {
   event.preventDefault();
@@ -20,6 +21,13 @@ function handleSearchFormSubmit(event) {
   
 }
 
+function handleRandomButton(event) {
+  event.preventDefault();
+
+  //var randomString = './search-request.html?q='
+} 
+
 searchFormEl.addEventListener('submit', handleSearchFormSubmit);
+randomBtnEl.addEventListener('click', handleRandomButton);
 
 
