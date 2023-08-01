@@ -43,19 +43,19 @@ function getRandomCocktail() {
         let drinkSection = document.querySelector('#drink-section');
         
         let drinkName = document.createElement('h2');
-        drinkName.classList.add('text-center', 'p-3', 'text-3xl', 'mt-6')
+        drinkName.classList.add('text-center', 'p-3', 'text-3xl', 'md:mt-12')
         drinkName.innerHTML = cocktail.drinks[0].strDrink;
         
         drinkSection.appendChild(drinkName);
         
         let img = document.createElement('img');
-        img.classList.add('h-60', 'justify-center', 'items-center', 'float-right', 'm-4')
+        img.classList.add('h-40', 'flex', 'flex-col', 'content-evenly', 'mx-4', 'mb-2', 'md:h-40', 'lg:h-60', 'md:float-right')
         img.src = cocktail.drinks[0].strDrinkThumb;
         
         drinkSection.appendChild(img);
         
         let ingredientsTitle = document.createElement('span')
-        ingredientsTitle.classList.add('text-2xl', 'm-4')
+        ingredientsTitle.classList.add('text-2xl', 'm-4', 'text-left')
         ingredientsTitle.innerHTML = 'Ingredients:'
         drinkSection.appendChild(ingredientsTitle)
         
@@ -67,7 +67,7 @@ function getRandomCocktail() {
             }
         
             let ingredient = document.createElement('ul');
-            ingredient.classList.add('flex', 'flex-col', 'mt-1', 'justify-center', 'm-4')
+            ingredient.classList.add('flex', 'flex-col', 'mt-1', 'justify-center', 'm-4', 'sm:max-sm:text-center')
             ingredient.innerHTML = cocktail.drinks[0][`strMeasure${i}`] 
             + ': ' + cocktail.drinks[0][`strIngredient${i}`];
         
@@ -115,19 +115,19 @@ function getCocktail(ingredient) {
         let drinkSection = document.querySelector('#drink-section');
         
         let drinkName = document.createElement('h2');
-        drinkName.classList.add('text-center', 'p-3', 'text-3xl')
+        drinkName.classList.add('text-center', 'p-3', 'text-3xl', 'mt-6')
         drinkName.innerHTML = cocktail.drinks[0].strDrink;
         
         drinkSection.appendChild(drinkName);
         
         let img = document.createElement('img');
-        img.classList.add('container', 'mx-auto', 'justify-center', 'items-center')
+        img.classList.add('h-60', 'justify-center', 'items-center', 'mx-10', 'md:float-right')
         img.src = cocktail.drinks[0].strDrinkThumb;
         
         drinkSection.appendChild(img);
         
         let ingredientsTitle = document.createElement('span')
-        ingredientsTitle.classList.add('text-2xl')
+        ingredientsTitle.classList.add('text-2xl', 'm-4')
         ingredientsTitle.innerHTML = 'Ingredients:'
         drinkSection.appendChild(ingredientsTitle)
         
@@ -139,7 +139,7 @@ function getCocktail(ingredient) {
             }
         
             let ingredient = document.createElement('ul');
-            ingredient.classList.add('flex', 'flex-col', 'mt-1', 'justify-center')
+            ingredient.classList.add('text-2xl', 'm-4')
             ingredient.innerHTML = cocktail.drinks[0][`strMeasure${i}`] 
             + ': ' + cocktail.drinks[0][`strIngredient${i}`];
         
@@ -147,12 +147,12 @@ function getCocktail(ingredient) {
         }
         
         let directions = document.createElement('span')
-        directions.classList.add('text-2xl')
+        directions.classList.add('text-2xl', 'm-4')
         directions.innerHTML = 'Directions:';
         drinkSection.appendChild(directions)
         
         let card = document.createElement('p');
-        card.classList.add('mt-1')
+        card.classList.add('mt-1', 'm-4')
         card.innerHTML = cocktail.drinks[0].strInstructions + '<br/>' + '<br/>';
         
         drinkSection.appendChild(card);
