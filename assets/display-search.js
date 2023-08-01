@@ -143,11 +143,13 @@ function getSearchedCocktail(cocktail) {
             });
 }
 function handleRandomSelect(event) {
+    clearResults();
     event.preventDefault();
     getRandomCocktail();
 }
 
 function handleSelect(event) {
+    clearResults();
     event.preventDefault();
     var searchInputVal = document.getElementById('default-input').value;
     if (!searchInputVal) {
@@ -155,11 +157,16 @@ function handleSelect(event) {
         return;
     }
 
-    searchCocktail(searchInputVal);
+    getCocktail(searchInputVal);
 
 }
 
-
+function clearResults(){
+    let drinkSection = document.querySelector('#drink-section');
+    while (drinkSection.firstChild){
+        drinkSection.removeChild(drinkSection.lastChild);
+}
+}
 
 
 // searchFormEl.addEventListener('click', handleSearchFormSubmit);
