@@ -141,6 +141,7 @@ function getSearchedCocktail(cocktail) {
                 )
             });
 }
+//Gets a random Dad joke to display
 async function getDadJoke() {
     const dadJoke = await fetch("https://icanhazdadjoke.com/", {
         headers: {
