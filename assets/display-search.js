@@ -14,7 +14,6 @@ var randomButtonEl = document.querySelector('#random-button');
 var submitButtonEl = document.querySelector('#submit-button');
 
 
-
 // function to get random cocktail
 function getRandomCocktail() {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
