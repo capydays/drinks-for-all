@@ -20,14 +20,14 @@ function handleSearchFormSubmit(event) {
   location.assign(queryString);
   
 }
-
-function handleRandomButton(event) {
-  event.preventDefault();
+//Random functionality from Homepage to be added further in development
+//function handleRandomButton(event) {
+  //event.preventDefault();
 
   //var randomString = './search-request.html?q='
-} 
+//} 
 
 searchFormEl.addEventListener('submit', handleSearchFormSubmit);
-randomBtnEl.addEventListener('click', handleRandomButton);
+//randomBtnEl.addEventListener('click', handleRandomButton);
 
 
