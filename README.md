@@ -7,7 +7,7 @@ This project was undertaken as the first major project assesment for the U of M 
 
 ## Installation
 
-No installation needed. Link to web application here:
+No installation needed. Link to web application here: https://capydays.github.io/drinks-for-all/
 
 ## Usage
 
