@@ -8,37 +8,42 @@
     <title>Drinks For All</title>
 </head>
 
-<body class="bg-green-100 ">
-    <div class="bg-white rounded-xl border-2 border-black m-4 p-4 max-w-fit">
-        <H1 class="m-4 p-6 text-center">Drinks For All</H1>
-        <p class="m-4 py-6 px-20 content-items-center">This application is to help find a drink for everyone (of age of course). By putting in
+<body class="bg-slate-200">
+    <div class="rounded-xl m-4 p-4 w-fit bg-slate-400">
+        <H1 class="m-4 p-6 text-center bg-slate-400 text-7xl">Drinks For All</H1>
+        <p class="m-4 py-6 px-20 content-items-center">This application is to help find a drink for everyone (of age of
+            course). By putting in
             your alcohol of choice in the search bar, the application will spit out a list of Drinks
             that are made with that choice as well as how to make them. Not sure of what to make? Don't worry, just
             press the randomize button in the bottom right to have our app randomly select a drink for you! </p>
-        <div class="flex items-end justify-center m-2 p-2 md-text-sm">
-            <div class="bg-blue-100 border-2 border-black m-4 inline-block p-4 rounded-xl box-border text-center md:h-60 flex flex-col" id="search-form">
-              <form id="search-form">    
-                 <h1 class="text-center">Search</h1>
-                 <p>Type in ingrediant selection and press the submit button.</p>
-                 <label for="Beverage">Beverage:
-                    <input type="text" class="form-input p-2 m-2" name="alcohol" placeholder=" poison of choice" id="search-input" />
-                 </label>
-                 <div>
-                    <button class=" bg-blue-300 hover:bg-gray-400 p-4 rounded-xl" id="search-form">submit</button>
-                </div>
-              </form>
+        <div class="flex items-end justify-evenly m-2 p-2">
+            <div class="bg-slate-200 border-2 m-4 p-4 rounded-xl text-center flex flex-col justify-evenly md:h-80 md:content-around lg:h-60 "
+                id="search-form">
+                <form id="search-form">
+                    <h1 class="text-center text-3xl">Search</h1>
+                    <p class="m-4">Type in ingrediant selection and press the submit button.</p>
+                    <label for="Beverage" class="m-4">Beverage:
+                        <input type="text" class="form-input p-2 m-2" name="alcohol" placeholder=" ingrediants"
+                            id="search-input" />
+                    </label>
+                    <div>
+                        <button class=" bg-blue-300 hover:bg-gray-400 p-2 rounded-xl m-4" id="search-form">Submit</button>
+                    </div>
+                </form>
 
             </div>
 
-            <div class="bg-blue-100 border-2 border-black m-4 inline-block p-4 rounded-xl text-center box-border  md:h-60 flex flex-col">
-                <h1 class="">Random Drink</h1>
+            <div
+                class="bg-slate-200 border-2 m-4 inline-block p-4 rounded-xl text-center box-border  md:h-60 flex flex-col justify-evenly items-center">
+                <h1 class="text-3xl">Random Drink</h1>
                 <p class="p-6">Feeling lucky? Go ahead and get a random drink!</p>
-                <button class="bg-blue-300 hover:bg-gray-400 p-4 m-4 rounded-xl object-none object-bottom" id="random-button">Randomize</button>
+                <button class="bg-blue-300 hover:bg-gray-400 p-2 m-4 rounded-xl object-none object-bottom w-fit"
+                    id="random-button">Randomize</button>
             </div>
-        </div>    
+        </div>
     </div>
 
-  <script src="assets/script.js"></script>
+    <script src="assets/script.js"></script>
 </body>
 
 </html>

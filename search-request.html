@@ -1,58 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Drinks For All - Search Results</title>
-  </head>
-  <body>
-    <div class="flex justify-center mt-2 p-5 text-3xl mb-6">Search Results</div>
-    <div class="container mx-auto">
-    <div class="columns-2 flex">
-      <div class="flex flex-col ml-2 border-2 w-2/6 sticky top-0 left-0 h-60">
-        <div class="flex flex-col items-center justify-center">
-          
-          <span class="text-center">Seach for drinks using you own preferences!</span>
-          <div class="mb-6">
-            <label
-              for="default-input"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-center"
-              >Choose ingredient</label
-            >
-            <input
-              type="text"
-              id="default-input"
-              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            />
-          </div>
-          
-          <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-fit rounded-full" id="submit-button"
-          >
-            Search
-          </button>
-        </div>
-        <div class="flex flex-col items-center justify-evenly mt-4 border-2">
-          
-          <span class="m-4">Feeling lucky? Go ahead and get random drink!</span>
 
-          <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full m-4" id="random-button"
-          >
-            Random
-          </button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Drinks For All - Search Results</title>
+</head>
+
+<body class="bg-slate-200 rounded-xl">
+  <div class="flex justify-center mt-2 p-5 text-3xl mb-6 border-2 bg-slate-400">Search Results</div>
+  <div class="container mx-auto">
+    <div class="columns-2 flex">
+
+      <div class="flex flex-col mb-10 w-2/6 sticky top-0 left-0 h-60">
+        <div class="bg-slate-400 mt-4 rounded-t-lg lg:w-80 xl:w-96">
+          <div class="flex flex-col items-center justify-center">
+
+            <span class="text-center p-2">Seach for drinks using you own preferences!</span>
+            <div class="mb-6">
+              <label for="default-input"
+                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-center">Choose
+                ingrediant</label>
+              <input type="text" id="default-input"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+            </div>
+
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 w-fit rounded-full"
+              id="submit-button">
+              Search
+            </button>
+          </div>
+          <div class="flex flex-col items-center justify-evenly mt-4 border-t-4 border-slate-200 lg:w-80 xl:w-96">
+
+            <span class="m-4">Feeling lucky? Go ahead and get random drink!</span>
+
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full m-4"
+              id="random-button">
+              Random
+            </button>
+          </div>
+          <div class="border-t-4 border-slate-200 p-4 lg:w-80 xl:w-96">
+            <div class="text-center">Dad Joke with your drink:</div>
+            <p id="jokes"></p>
+
+          </div>
         </div>
-        <div>Dad Joke with your drink:</div>
-          <p id="jokes"></p>
       </div>
       <div class="flex flex-col w-4/6 border-2 ml-4">
-        
-        <div id="drink-section" class="border-2 border-black m-4"></div>
-  
+
+        <div id="drink-section" class="border-4 border-slate-400 m-4"></div>
+
+      </div>
     </div>
-    </div>
-</div>
-<script src="./assets/display-search.js"></script>
-  </body>
+  </div>
+  <script src="./assets/display-search.js"></script>
+</body>
+
 </html>
